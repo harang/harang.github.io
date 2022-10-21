@@ -106,8 +106,8 @@ analytics:
 author:
   name             : "Harang Shin"
   avatar           : "/assets/img/profile.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "AWS 기술 기록용 블로그"
+  location         : "Seoul, Korea"
   email            :
   links:
     - label: "Email"

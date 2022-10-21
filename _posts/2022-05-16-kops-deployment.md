@@ -9,14 +9,14 @@ categories:
 1. 환경 준비
     - 마스터 머신에 kops, 쿠버네티스 설치
 
-1. 도메인 준비
+2. 도메인 준비
     - Route 53 도메인 준비
         - [sample-dev.com](http://sample-dev.com) 구매
         - 서브도메인 설정법
             
             [dev.sample-dev.com](http://dev.sample-dev.com) 을 사용하려면 해줘야하는 설정 
             
-            (실제로 설정하진 않았음, 3번으로 넘어가서 sample-dev.com 사용했음)
+            (실제로는 설정 생략하고 진행, 3번으로 넘어가서 sample-dev.com 사용했음)
             
             ```bash
             aws route53 create-hosted-zone --name [dev.sample-dev.com](http://dev.sample-dev.com/) --caller-reference 1
@@ -71,7 +71,7 @@ categories:
             ```
             
         
-2. 클러스터 상태 저장용 S3 버킷 생성
+3. 클러스터 상태 저장용 S3 버킷 생성
     
     ```bash
     #S3 버킷 생성
@@ -83,7 +83,7 @@ categories:
     ```
     
 
-1. 클러스터 설정 구성
+4. 클러스터 설정 구성
 
 ```bash
 export NAME=northeast2.sample-dev.com
@@ -119,7 +119,7 @@ kops edit cluster ${NAME}
 
 ```
 
-1. AWS에 클러스터 생성 및 리소스 배포
+5. AWS에 클러스터 생성 및 리소스 배포
 
 ```bash
 kops update cluster ${NAME} --yes --admin
