@@ -5,12 +5,25 @@ categories:
   - Cloud
 ---
 
-- 도커 이미지 blue ocean 통해서 eks에 배포
-- harbor 에서 이미지 받았다고 가정
+젠킨스를 처음 사용하는 개발자들이라면
+투박한 UI에 당황한 경험이 다들 있을 것이다.
+게다가 플러그인은 어찌 이리 많은지,
+설정들은 여기저기 숨어있어
+젠킨스가 접근성이 좋은 툴은 아니라고 생각했었다.
+
+하지만 Blue Ocean이라는 플러그인을 이용하면
+손쉽게 시각화된 파이프라인을 확인 및 설정할 수 있게됐다.
+
+이번에는 harbor에서 내려받은 도커 이미지를 blue ocean 통해서 eks에 배포하는 과정을 살펴볼 것이다.
+
 
 ### Blue Ocean UI 상 설정
 
 ![/assets/img/2022-06-10-jenkins-pipeline-blueocean/Untitled.png](/assets/img/2022-06-10-jenkins-pipeline-blueocean/Untitled.png)
+
+Blue Ocean을 이용하면 파이프라인을 이런 식으로 볼 수 있게된다.
+다음은 해당 파이프라인의 코드이다.
+
 
 ### JenkinsFile 코드 예시
 
@@ -39,8 +52,11 @@ pipeline {
   }
 }
 ```
+Blue Ocean을 이용해도 기존과 동일하게 JenkinsFile을 통해 설정할 수 있다.
+
 
 ### Jenkins에 SAM 사용해서 AWS Credential 설정
+AWS에 배포하려면 리소스들이 올라갈 AWS 계정의 크레덴셜을 이용해 젠킨스와 연동해주어야 한다.
 
 - 참조 문서
     
@@ -55,7 +71,7 @@ Pipeline: AWS Steps 플러그인 설치
 
 ### 파이프라인 구성 예시
 
-withAWS 사용해서 젠킨스에 설정한 ID사용
+withAWS로 젠킨스에 연결한 AWS ID를 사용하는 예시이다.
 
 ```jsx
 pipeline {
@@ -124,6 +140,9 @@ steps {
 						}
       }
 ```
+
+
+##다음은 젠킨스 파이프라인의 예시 코드이다.
 
 ### EKS 클러스터 설정 방법
 
