@@ -1,3 +1,10 @@
+---
+title: "Cross Account S3 bucket copy"
+categories:
+  - AWS
+  - Cloud
+---
+
 # 다른 계정에 있는 S3 버킷 복제하기
 
 여러 AWS 계정을 이용할 경우, 데이터가 분산 저장되어 있을 수 있는데
